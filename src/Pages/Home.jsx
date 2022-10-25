@@ -6,7 +6,7 @@ import banner from "../assets/banner.jpg";
 
 const Home = () => {
   return (
-    <div className="flex items-center justify-between px-24 mt-6">
+    <div className="flex items-center justify-between px-24 h-screen">
       <div>
         <p className="font-mono ml-1">Hello Beginners,</p>
         <h3 className="text-5xl font-mono font-bold">
@@ -26,7 +26,7 @@ const Home = () => {
       </div>
       <div>
         <img className="h-96" src={banner} alt="" />
-      </div>
+          </div>
     </div>
   );
 };

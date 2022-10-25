@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className="navbar flex items-center justify-between px-36 mt-0">
       <div className="">
-        <Link>
+        <Link to='/'>
           <img className="h-16" src={logo} alt="" />
         </Link>
       </div>
