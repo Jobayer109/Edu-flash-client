@@ -11,20 +11,35 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="bg-gray-400 text-white p-1 rounded-lg">
-        <Link className="ml-8 motion-safe:hover:scale-110" to="/home">
+      <div className="  text-black  p-4 rounded-lg">
+        <Link
+          className="ml-16 motion-safe:hover:scale-110 hover:border-y-2 border-black"
+          to="/"
+        >
           Home
         </Link>
-        <Link className="ml-8 motion-safe:hover:scale-110" to="/courses">
+        <Link
+          className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
+          to="/courses"
+        >
           Courses
         </Link>
-        <Link className="ml-8 motion-safe:hover:scale-110" to="/profile">
+        <Link
+          className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
+          to="/profile"
+        >
           Profile
         </Link>
-        <Link className="ml-8 motion-safe:hover:scale-110" to="/blogs">
+        <Link
+          className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
+          to="/blogs"
+        >
           Blogs
         </Link>
-        <Link className="ml-8 motion-safe:hover:scale-110 mr-8" to="/faq">
+        <Link
+          className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black mr-16"
+          to="/faq"
+        >
           FAQ
         </Link>
       </div>
