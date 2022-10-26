@@ -11,9 +11,9 @@ const Categories = () => {
   }, []);
 
   return (
-    <div>
+    <div className="border-2 mx-12 bg-gray-700 py-4 pt-16 text-white h-screen rounded-xl sticky top-0 shadow-lg">
       {categories.map((category) => (
-        <div key={category._id} className="grid grid-cols-1 text-center mt-4">
+        <div key={category._id} className="my-4 px-12 text-center hover:bg-yellow-500 py-2 font-mono w-full ">
           <Link to={`/category/${category._id}`}>{category.name}</Link>
         </div>
       ))}
