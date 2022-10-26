@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="lg:w-1/3">
               <Link
                 rel="noopener noreferrer"
-                href="#"
+                to='/'
                 className="flex justify-center space-x-3 lg:justify-start"
               >
                 <div className="flex items-center justify-center w-24 h-24 rounded-full dark:bg-violet-400">
@@ -48,14 +48,14 @@ const Footer = () => {
                 <h3 className="tracking-wide uppercase dark:text-gray-50 font-bold">Company</h3>
                 <ul className="space-y-1">
                   <li>
-                    <a rel="noopener noreferrer" href="#">
+                    <Link rel="noopener noreferrer" to='/'>
                       Privacy
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a rel="noopener noreferrer" href="#">
+                    <Link rel="noopener noreferrer" to='/'>
                       Terms of Service
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

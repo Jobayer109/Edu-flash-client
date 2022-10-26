@@ -16,6 +16,7 @@ const Login = () => {
 
     logIn(email, password)
       .then((result) => {
+        form.reset("")
         console.log(result.user);
       })
       .catch((error) => {
@@ -25,7 +26,7 @@ const Login = () => {
 
   return (
     <div>
-      <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto mt-4">
+      <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto mt-8 mb-20">
         <form onSubmit={handleSubmit} className="space-y-6">
           <h5 className="text-xl font-medium text-gray-900 dark:text-white">
             Sign in to our platform

@@ -1,10 +1,19 @@
 import React, { useContext } from "react";
+import { FaUserSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../assets/Logo.png";
 import { AuthContext } from "../Contexts/AuthProvider";
 
 const Header = () => {
-  const {user} = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+
+  //User log out.
+  const handleSignOut = () => {
+    logOut()
+      .then((Result) => {})
+      .catch((error) => {});
+  };
+
   return (
     <div className="navbar flex items-center justify-between px-36 mt-0">
       <div className="">
@@ -45,8 +54,12 @@ const Header = () => {
       <div className="flex-none gap-2">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-12 rounded-full border-2 border-gray-400 ">
-              {user && user?.photoURL ? <img src={user.photoURL} alt="" /> : <img src="" alt="" /> }
+            <div className="w-12 rounded-full border-2 border-gray-400">
+              {user && user?.photoURL ? (
+                <img src={user.photoURL} alt="" />
+              ) : (
+                <FaUserSlash className="h-10 w-10" />
+              )}
             </div>
           </label>
           <ul
@@ -56,19 +69,28 @@ const Header = () => {
             <li>
               <Link
                 to="/profile"
-                className="justify-center font-bold border-b-2 text-white ransform hover:scale-110 motion-reduce:transform-none "
+                className="justify-center font-bold border-b-2 text-white ransform hover:scale-110 motion-reduce:transform-none text-center "
               >
-                Profile
+                {user?.displayName ? (
+                  <span className="text-white text-md">{user?.displayName}</span>
+                ) : (
+                  "unknown user"
+                )}
               </Link>
             </li>
-            <li>
-              <button className="btn btn-error btn-outline my-3">Sign out</button>
-            </li>
-            <li>
-              <Link to="/login">
-                <button className="btn btn-warning btn-outline my-3 w-full">Sign in</button>
-              </Link>
-            </li>
+            {user && user?.uid ? (
+              <li>
+                <button onClick={handleSignOut} className="btn btn-error btn-outline mt-10">
+                  Sign out
+                </button>
+              </li>
+            ) : (
+              <li>
+                <Link to="/login">
+                  <button className="btn btn-warning btn-outline my-1 w-full">Sign in</button>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
