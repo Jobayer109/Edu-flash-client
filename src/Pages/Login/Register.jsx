@@ -1,86 +1,79 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import { AuthContext } from "../../Contexts/AuthProvider";
+
 
 const Register = () => {
+  const { createUser, profile } = useContext(AuthContext);
+  
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const imgUrl = form.imgURL.value;
+    const imgUrl = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, imgUrl, email, password);
-}
 
-
+    createUser(email, password)
+      .then((result) => {
+        profile(name, imgUrl)
+        console.log(result.user);
+      })
+      .catch((error) => {
+        swal(error.message)
+      });
+  };
 
   return (
     <div>
       <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto mt-4">
         <form onSubmit={handleSubmit} className="space-y-6">
-          <h5 className="text-xl font-medium text-gray-900 dark:text-white">
-            Register
-          </h5>
+          <h5 className="text-xl font-medium text-gray-900 dark:text-white">Register</h5>
           <div>
-            <label
-              for="name"
-              className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+            <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300">
               Your name
             </label>
             <input
               type="text"
               name="name"
-              id="name"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="name"
               required=""
             />
           </div>
           <div>
-            <label
-              for="email"
-              className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+            <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300">
               Your photo url
             </label>
             <input
               type="photoURL"
               name="photoURL"
-              id="photoURL"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="photoURL"
-             
             />
           </div>
           <div>
-            <label
-              for="email"
-              className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+            <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300">
               Your email
             </label>
             <input
               type="email"
               name="email"
-              id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="email"
               required=""
             />
           </div>
           <div>
-            <label
-              for="password"
-              className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+            <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300">
               Your password
             </label>
             <input
               type="password"
               name="password"
-              id="password"
               placeholder="••••••••"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               required=""
@@ -104,7 +97,6 @@ const Register = () => {
                 Accept terms and conditions
               </label>
             </div>
-            
           </div>
           <button
             type="submit"
