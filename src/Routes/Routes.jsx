@@ -9,55 +9,67 @@ import FAQ from "../Pages/FAQ";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
+import Premium from "../Pages/Premium";
 import Profile from "../Pages/Profile";
+import PrivetRoute from "./PrivetRoute";
 
-export const router = createBrowserRouter([{
-    path: '/',
+export const router = createBrowserRouter([
+  {
+    path: "/",
     element: <Main></Main>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-        {
-            path: '/',
-            element: <Home></Home>
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "courses",
+        loader: () => fetch("http://localhost:5000/courses"),
+        element: <Courses></Courses>,
+      },
+      {
+        path: "course/:id",
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/course/${params.id}`);
         },
-        {
-            path: 'courses',
-            loader: ()=> fetch("http://localhost:5000/courses"),
-            element: <Courses></Courses>
+        element: <CourseDetails></CourseDetails>,
+      },
+      {
+        path: "/category/:catId",
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/category/${params.catId}`);
         },
-        {
-            path: "course/:id",
-            loader: ({params}) => {
-                return fetch(`http://localhost:5000/course/${params.id}`);
-            },
-            element: <CourseDetails></CourseDetails>
-        },
-        {
-            path: "/category/:catId",
-            loader: ({params}) => {
-                return fetch(`http://localhost:5000/category/${params.catId}`);
-            },
-            element: <Category></Category>
-        },
-        {
-            path: 'profile',
-            element: <Profile></Profile>
-        },
-        {
-            path: 'faq',
-            element:<FAQ></FAQ>
-        },
-        {
-            path: 'blogs',
-            element:<Blogs></Blogs>
-        },
-        {
-            path: 'login',
-            element:<Login></Login>
-        },
-        {
-            path: "register",
-            element: <Register></Register>
-        }
-    ]
-}]) 
+        element: <Category></Category>,
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "faq",
+        element: <FAQ></FAQ>,
+      },
+      {
+        path: "blogs",
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
+      },
+      {
+        path: "premium",
+        element: (
+          <PrivetRoute>
+            <Premium></Premium>
+          </PrivetRoute>
+        ),
+      },
+    ],
+  },
+]); 
