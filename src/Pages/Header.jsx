@@ -74,7 +74,7 @@ const Header = () => {
                 {user?.displayName ? (
                   <span className="text-white text-md">{user?.displayName}</span>
                 ) : (
-                  "unknown user"
+                  "No user data"
                 )}
               </Link>
             </li>

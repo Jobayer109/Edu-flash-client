@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -5,7 +6,9 @@ import swal from "sweetalert";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, googleSignIn } = useContext(AuthContext);
+const googleProvider = new GoogleAuthProvider()
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +26,17 @@ const Login = () => {
         swal(error.message);
       });
   };
+
+//Google sign in
+  const handleGoogleSignIn = () => {
+    googleSignIn(googleProvider)
+      .then(result => { console.log(result.user);})
+    .catch(error =>{})
+  }
+
+
+
+
 
   return (
     <div>
@@ -87,7 +101,7 @@ const Login = () => {
             Sign in
           </button>
           <div className="flex items-center justify-center">
-            <FaGoogle className="text-3xl text-blue-900 mr-3" />
+            <FaGoogle onClick={handleGoogleSignIn} className="text-3xl text-blue-900 mr-3" />
             <FaGithub className="text-3xl" />
           </div>
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
@@ -7,6 +7,7 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 const Register = () => {
   const { createUser, profile } = useContext(AuthContext);
   
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +21,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         profile(name, imgUrl)
+        navigate('/login')
         form.reset("")
         console.log(result.user);
       })

@@ -4,11 +4,13 @@ import Footer from "../Pages/Footer";
 import Header from "../Pages/Header";
 
 const Main = () => {
-    return <div>
-        <Header></Header>
+  return (
+    <div>
+      <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
-  </div>;
+    </div>
+  );
 };
 
 export default Main;
