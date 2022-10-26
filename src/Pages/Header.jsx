@@ -6,16 +6,13 @@ const Header = () => {
   return (
     <div className="navbar flex items-center justify-between px-36 mt-0">
       <div className="">
-        <Link to='/'>
+        <Link to="/">
           <img className="h-16" src={logo} alt="" />
         </Link>
       </div>
 
-      <div className="  text-black  p-4 rounded-lg">
-        <Link
-          className="ml-16 motion-safe:hover:scale-110 hover:border-y-2 border-black"
-          to="/"
-        >
+      <div className="  text-black font-thin  p-4 rounded-lg">
+        <Link className="ml-16 motion-safe:hover:scale-110 hover:border-y-2 border-black" to="/">
           Home
         </Link>
         <Link
@@ -64,6 +61,11 @@ const Header = () => {
             </li>
             <li>
               <button className="btn btn-error btn-outline my-3">Sign out</button>
+            </li>
+            <li>
+              <Link to='/login'>
+                <button className="btn btn-warning btn-outline my-3 w-full">Sign in</button>
+              </Link>
             </li>
           </ul>
         </div>
