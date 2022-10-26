@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { createContext, useState } from "react";
 import app from "../firebase/firebase.config";
 
@@ -18,6 +18,11 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, { displayName:name, photoURL:photoURL})
   }
 
+  //Sign in with email and password
+  const logIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  }
+
   //On auth state change
   const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser)
@@ -26,7 +31,7 @@ const AuthProvider = ({ children }) => {
     }
   })
 
-  const authInfo = { user, createUser, profile};
+  const authInfo = { user, createUser, profile, logIn};
 
   return <AuthContext.Provider value={authInfo}>
     {children}

@@ -1,52 +1,54 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Login = () => {
+  const { logIn } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    console.log(email, password);
 
-    console.log(email, password)
-  }
-
-
+    logIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        swal(error.message);
+      });
+  };
 
   return (
     <div>
       <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto mt-4">
         <form onSubmit={handleSubmit} className="space-y-6">
-          <h5 className="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
+          <h5 className="text-xl font-medium text-gray-900 dark:text-white">
+            Sign in to our platform
+          </h5>
           <div>
-            <label
-              for="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
               Your email
             </label>
             <input
               type="email"
               name="email"
-              id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="email"
               required=""
             />
           </div>
           <div>
-            <label
-              for="password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
               Your password
             </label>
             <input
               type="password"
               name="password"
-              id="password"
               placeholder="••••••••"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               required=""
@@ -70,7 +72,10 @@ const Login = () => {
                 Remember me
               </label>
             </div>
-            <Link to="/" className="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500">
+            <Link
+              to="/"
+              className="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500"
+            >
               Forget Password?
             </Link>
           </div>
@@ -81,8 +86,8 @@ const Login = () => {
             Sign in
           </button>
           <div className="flex items-center justify-center">
-                      <FaGoogle className="text-3xl text-blue-900 mr-3" />
-                      <FaGithub className="text-3xl"/>
+            <FaGoogle className="text-3xl text-blue-900 mr-3" />
+            <FaGithub className="text-3xl" />
           </div>
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
             Not registered?{" "}

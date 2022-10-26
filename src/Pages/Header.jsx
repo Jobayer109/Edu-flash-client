@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/Logo.png";
+import { AuthContext } from "../Contexts/AuthProvider";
 
 const Header = () => {
+  const {user} = useContext(AuthContext)
   return (
     <div className="navbar flex items-center justify-between px-36 mt-0">
       <div className="">
@@ -44,7 +46,7 @@ const Header = () => {
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-12 rounded-full border-2 border-gray-400 ">
-              <img src="https://placeimg.com/80/80/people" />
+              {user && user?.photoURL ? <img src={user.photoURL} alt="" /> : <img src="" alt="" /> }
             </div>
           </label>
           <ul
@@ -63,7 +65,7 @@ const Header = () => {
               <button className="btn btn-error btn-outline my-3">Sign out</button>
             </li>
             <li>
-              <Link to='/login'>
+              <Link to="/login">
                 <button className="btn btn-warning btn-outline my-3 w-full">Sign in</button>
               </Link>
             </li>
