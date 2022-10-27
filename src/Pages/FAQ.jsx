@@ -3,12 +3,12 @@ import React from "react";
 const FAQ = () => {
   return (
     <div>
-      <section className="dark:bg-gray-800 dark:text-gray-100 h-screen">
+      <section className="dark:bg-gray-800 dark:text-gray-100 text-black w-[80%] mx-auto my-16 bg-gradient-to-t from-gray-400 to-white border rounded-t-full p-12">
         <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
-          <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
+          <h2 className="mb-12 text-3xl font-bold leading-none text-center sm:text-3xl">
             Frequently Asked Questions
           </h2>
-          <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-700">
+          <div className="flex flex-col mb-10 divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-700">
             <details open="">
               <summary className="py-2 outline-none cursor-pointer text-xl font-mono">
                 Who is this course for?

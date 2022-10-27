@@ -17,34 +17,34 @@ const Header = () => {
   return (
     <div className="navbar flex items-center justify-between px-36 mt-0">
       <div className="">
-        <NavLink style={{backgroundColor:"red"}} to="/">
+        <NavLink to="/">
           <img className="h-16" src={logo} alt="" />
         </NavLink>
       </div>
 
       <div className="  text-black font-thin  p-4 rounded-lg">
-        <NavLink  style={{backgroundColor:"gray"}} className="ml-16 motion-safe:hover:scale-110 hover:border-y-2 border-black" to="/">
+        <NavLink className="ml-16 motion-safe:hover:scale-110 hover:border-y-2 border-black" to="/">
           Home
         </NavLink>
-        <NavLink style={{backgroundColor:"gray"}}
+        <NavLink
           className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
           to="/courses"
         >
           Courses
         </NavLink>
-        <NavLink style={{backgroundColor:"gray"}}
+        <NavLink
           className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
           to="/profile"
         >
           Profile
         </NavLink>
-        <NavLink style={{backgroundColor:"gray"}}
+        <NavLink
           className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
           to="/blogs"
         >
           Blogs
         </NavLink>
-        <NavLink style={{backgroundColor:"gray"}}
+        <NavLink
           className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black mr-16"
           to="/faq"
         >
@@ -80,9 +80,11 @@ const Header = () => {
             </li>
             {user && user?.uid ? (
               <li>
-                <button onClick={handleSignOut} className="btn btn-error btn-outline mt-10">
-                  Sign out
-                </button>
+                <Link to="/login">
+                  <button onClick={handleSignOut} className="btn btn-error btn-outline mt-10">
+                    Sign out
+                  </button>
+                </Link>
               </li>
             ) : (
               <li>

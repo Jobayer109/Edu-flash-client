@@ -82,7 +82,7 @@ const CourseDetails = () => {
             </div>
           </div>
 
-          <div className="text-center mt-10 rounded-br-full bg-slate-300 p-2 border-black">
+          <div className="text-center mt-10 rounded-br-full bg-slate-300 p-6 border-black">
             <p className="text-sm font-mono">
               To get the best and high quality teaching from our platform, <br /> you may explore
               our premium courses.

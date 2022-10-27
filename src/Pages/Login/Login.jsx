@@ -1,13 +1,15 @@
-import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import React, { useContext, useEffect } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Login = () => {
-  const { logIn, googleSignIn } = useContext(AuthContext);
+  const {user, logIn, googleSignIn, githubSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -21,23 +23,45 @@ const Login = () => {
 
     logIn(email, password)
       .then((result) => {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
         form.reset("");
         console.log(result.user);
       })
       .catch((error) => {
         swal(error.message);
       });
+    
+   
   };
 
   //Google sign in
   const handleGoogleSignIn = () => {
     googleSignIn(googleProvider)
-      .then((result) => {
-        console.log(result.user);
-      })
+      .then((result) => {})
       .catch((error) => {});
   };
+
+  //Github sign in
+  const handleGithubSignIn = () => {
+    githubSignIn(githubProvider)
+      .then((result) => {})
+      .catch((error) => {});
+  };
+
+   useEffect(() => {
+     if (user) {
+       navigate(from, { replace: true });
+     }
+   }, [user, navigate, from]);
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -103,7 +127,7 @@ const Login = () => {
           </button>
           <div className="flex items-center justify-center">
             <FaGoogle onClick={handleGoogleSignIn} className="text-3xl text-blue-900 mr-3" />
-            <FaGithub className="text-3xl" />
+            <FaGithub onClick={handleGithubSignIn} className="text-3xl" />
           </div>
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
             Not registered?{" "}
