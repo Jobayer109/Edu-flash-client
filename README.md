@@ -21,7 +21,7 @@ firebase,
 Vercel,
 Environment variables.
 
-### Credits:
+### `Credits:`
 
 *All credits goes to https://web.programming-hero.com/ team.*
 

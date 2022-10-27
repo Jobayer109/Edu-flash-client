@@ -33,12 +33,6 @@ const {user} = useContext(AuthContext)
             <span className="dark:text-gray-400">+880 17*******</span>
           </span>
         </div>
-        <div className="text-end mt-4">
-          <span>
-            <button className="btn btn-sm w-36 mt-4">Update profile</button>
-          </span>
-          <span></span>
-        </div>
       </div>
     </div>
   );
