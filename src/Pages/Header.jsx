@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { FaUserSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/Logo.png";
 import { AuthContext } from "../Contexts/AuthProvider";
 
@@ -17,39 +17,39 @@ const Header = () => {
   return (
     <div className="navbar flex items-center justify-between px-36 mt-0">
       <div className="">
-        <Link to="/">
+        <NavLink style={{backgroundColor:"red"}} to="/">
           <img className="h-16" src={logo} alt="" />
-        </Link>
+        </NavLink>
       </div>
 
       <div className="  text-black font-thin  p-4 rounded-lg">
-        <Link className="ml-16 motion-safe:hover:scale-110 hover:border-y-2 border-black" to="/">
+        <NavLink  style={{backgroundColor:"gray"}} className="ml-16 motion-safe:hover:scale-110 hover:border-y-2 border-black" to="/">
           Home
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink style={{backgroundColor:"gray"}}
           className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
           to="/courses"
         >
           Courses
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink style={{backgroundColor:"gray"}}
           className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
           to="/profile"
         >
           Profile
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink style={{backgroundColor:"gray"}}
           className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
           to="/blogs"
         >
           Blogs
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink style={{backgroundColor:"gray"}}
           className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black mr-16"
           to="/faq"
         >
           FAQ
-        </Link>
+        </NavLink>
       </div>
       <div className="flex-none gap-2">
         <div className="dropdown dropdown-end">
