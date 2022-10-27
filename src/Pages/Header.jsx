@@ -16,40 +16,45 @@ const Header = () => {
 
   return (
     <div className="navbar flex items-center justify-between px-36 mt-0">
-      <div className="">
-        <NavLink to="/">
-          <img className="h-16" src={logo} alt="" />
-        </NavLink>
-      </div>
+      <div className="sm:flex flex-a">
+        <div className="">
+          <NavLink to="/">
+            <img className="h-16 sm:content-center" src={logo} alt="" />
+          </NavLink>
+        </div>
 
-      <div className="  text-black font-thin  p-4 rounded-lg">
-        <NavLink className="ml-16 motion-safe:hover:scale-110 hover:border-y-2 border-black" to="/">
-          Home
-        </NavLink>
-        <NavLink
-          className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
-          to="/courses"
-        >
-          Courses
-        </NavLink>
-        <NavLink
-          className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
-          to="/profile"
-        >
-          Profile
-        </NavLink>
-        <NavLink
-          className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
-          to="/blogs"
-        >
-          Blogs
-        </NavLink>
-        <NavLink
-          className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black mr-16"
-          to="/faq"
-        >
-          FAQ
-        </NavLink>
+        <div className="  text-black font-thin  p-4 rounded-lg">
+          <NavLink
+            className="ml-16 motion-safe:hover:scale-110 hover:border-y-2 border-black"
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
+            to="/courses"
+          >
+            Courses
+          </NavLink>
+          <NavLink
+            className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
+            to="/profile"
+          >
+            Profile
+          </NavLink>
+          <NavLink
+            className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black"
+            to="/blogs"
+          >
+            Blogs
+          </NavLink>
+          <NavLink
+            className="ml-8 motion-safe:hover:scale-110 hover:border-y-2 border-black mr-16"
+            to="/faq"
+          >
+            FAQ
+          </NavLink>
+        </div>
       </div>
       <div className="flex-none gap-4">
         <label className="swap swap-rotate">

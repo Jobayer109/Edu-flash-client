@@ -7,8 +7,8 @@ import ReactToPrint from "react-to-print";
 const CourseDetails = () => {
   const ref = useRef()
   const CourseDetails = useLoaderData();
-  console.log(CourseDetails);
-  const { course_name, details, Instructor, comment, fee, img, rating, lessons } = CourseDetails;
+  
+  const {id, course_name, details, Instructor, comment, fee, img, rating, lessons } = CourseDetails;
   return (
     <div>
       <div
@@ -98,7 +98,7 @@ const CourseDetails = () => {
               To get the best and high quality teaching from our platform, <br /> you may explore
               our premium courses.
             </p>
-            <Link to="/premium">
+            <Link to='/premium'>
               <button className="btn btn-outline mt-3 w-60 shadow-lg">Get premium access</button>
             </Link>
           </div>

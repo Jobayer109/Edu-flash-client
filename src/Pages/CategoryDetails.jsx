@@ -3,7 +3,6 @@ import { FaDollarSign, FaFilePdf, FaReply, FaStar, FaThumbsUp } from "react-icon
 import { Link } from "react-router-dom";
 
 const CategoryDetails = ({ categoryDetails }) => {
-  console.log(categoryDetails);
   const { course_name, details, Instructor, comment, fee, img, rating, lessons } = categoryDetails;
 
   return (

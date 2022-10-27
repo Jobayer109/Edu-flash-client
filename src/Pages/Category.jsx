@@ -4,7 +4,6 @@ import CategoryDetails from "./CategoryDetails";
 
 const Category = () => {
   const categoriesDetails = useLoaderData();
-  console.log(categoriesDetails);
 
   return (
     <div className="">
