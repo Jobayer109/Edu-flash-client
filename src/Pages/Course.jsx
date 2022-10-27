@@ -21,12 +21,12 @@ const Course = ({ course }) => {
               <p className=" font-mono">
                 Course Fee: $<span className="text-orange-500 font-bold">{fee}</span>
               </p>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center">
                 <div className="flex items-center">
                   <FaStar />
                   <p className="ml-2">{rating}</p>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center ml-16">
                   <FaThumbsUp />
                   <p className="ml-2">{comment}</p>
                 </div>
