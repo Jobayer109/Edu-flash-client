@@ -4,9 +4,10 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import app from "../../firebase/firebase.config";
 
 const Login = () => {
-  const {user, logIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const { user, logIn, googleSignIn, githubSignIn, resetPassword } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
@@ -23,7 +24,6 @@ const Login = () => {
 
     logIn(email, password)
       .then((result) => {
-        // navigate(from, { replace: true });
         form.reset("");
         console.log(result.user);
       })
@@ -54,13 +54,12 @@ const Login = () => {
      }
    }, [user, navigate, from]);
 
-
-
-
-
-
-
-
+//Password reset.
+  const handleResetPassword = (email) => {
+    resetPassword(email)
+      .then(result => { console.log(result.user);})
+    .catch(error => {console.log(error.message);})
+  }
 
 
   return (
@@ -113,6 +112,7 @@ const Login = () => {
               </label>
             </div>
             <Link
+              onClick={handleResetPassword}
               to="/"
               className="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500"
             >
