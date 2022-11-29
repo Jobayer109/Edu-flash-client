@@ -3,11 +3,10 @@ import { FaEnvelope, FaIdBadge, FaPhone } from "react-icons/fa";
 import { AuthContext } from "../Contexts/AuthProvider";
 
 const Profile = () => {
-const {user} = useContext(AuthContext)
-
+  const { user } = useContext(AuthContext);
 
   return (
-    <div className="max-w-lg mx-auto border p-8 sm:flex sm:space-x-6 dark:bg-gray-900 dark:text-gray-100 mb-40 mt-24 rounded-md bg-slate-400">
+    <div className="max-w-lg mx-auto border p-8 sm:flex sm:space-x-6 mb-40 mt-24 rounded-md bg-slate-400">
       <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
         <img
           src={user?.photoURL}

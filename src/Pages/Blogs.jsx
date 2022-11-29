@@ -2,7 +2,7 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="max-w-3xl p-8 mx-auto dark:bg-gray-800 dark:text-gray-100">
+    <div className="max-w-3xl p-8 mx-auto ">
       <ul className="space-y-12">
         <li className="flex items-center space-x-3 shadow-lg rounded-xl p-4">
           <p className="font-bold bg-gray-500 rounded-full text-white mt-10 p-2">Q.1</p>
