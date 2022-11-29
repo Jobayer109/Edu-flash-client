@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaDollarSign, FaFilePdf, FaReply, FaStar, FaThumbsUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import ReactToPrint from "react-to-print";
 
 const CategoryDetails = ({ categoryDetails }) => {
+  const ref = useRef()
   const { course_name, details, Instructor, comment, fee, img, rating, lessons } = categoryDetails;
 
   return (
     <div>
-      <div className="max-w-sm w-full lg:max-w-[70%]  lg:mx-auto lg:flex border-1 shadow-lg rounded-lg p-8 mt-8 mb-24">
+      <div
+        ref={ref}
+        className="max-w-sm w-full lg:max-w-[70%]  lg:mx-auto lg:flex border-1 shadow-lg rounded-lg p-8 mt-8 mb-24"
+      >
         <div className=" h-48 lg:h-60 lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
           <img className="h-36 rounded-xl" src={img} alt="" />
         </div>
@@ -18,7 +23,13 @@ const CategoryDetails = ({ categoryDetails }) => {
                 <FaReply className="text-3xl text-red-600 text-center p-1 rounded-lg motion-safe:hover:scale-110" />
               </Link>
               <p className="text-sm text-gray-600 flex items-center justify-end">
-                <FaFilePdf className="text-4xl text-red-600 motion-safe:hover:scale-110"></FaFilePdf>
+                <ReactToPrint
+                  pageStyle={{ page: "A4" }}
+                  trigger={() => (
+                    <FaFilePdf className="text-4xl text-red-600 motion-safe:hover:scale-110" />
+                  )}
+                  content={() => ref.current}
+                />
               </p>
             </div>
             <div className="rounded-lg mb-3 py-2 flex justify-between">
@@ -73,7 +84,7 @@ const CategoryDetails = ({ categoryDetails }) => {
             </h2>
             <div className="flex justify-between items-center">
               {lessons.map((lesson) => (
-                <div className="motion-safe:hover:scale-110 bg-yellow-400  text-black h-16 w-28 p-2 px-3 text-md font-thin rounded-r-full rounded-lg mt-4 py-5 shadow-xl">
+                <div className="motion-safe:hover:scale-110 bg-slate-500  text-white h-16 w-28 p-2 px-3 text-md rounded-r-full rounded-lg mt-4 py-5 shadow-xl">
                   {" "}
                   {lesson}
                 </div>
@@ -81,7 +92,7 @@ const CategoryDetails = ({ categoryDetails }) => {
             </div>
           </div>
 
-          <div className="text-center mt-10 rounded-br-full bg-gray-300 p-6 border-black">
+          <div className="text-center mt-10 rounded-br-full bg-slate-300 p-6 border-black">
             <p className="text-sm font-mono">
               To get the best and high quality teaching from our platform, <br /> you may explore
               our premium courses.
