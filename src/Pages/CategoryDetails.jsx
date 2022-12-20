@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 import ReactToPrint from "react-to-print";
 
 const CategoryDetails = ({ categoryDetails }) => {
-  const ref = useRef()
+  const ref = useRef();
   const { course_name, details, Instructor, comment, fee, img, rating, lessons } = categoryDetails;
 
   return (
-    <div>
+    <div className="">
       <div
         ref={ref}
-        className="max-w-sm w-full lg:max-w-[70%]  lg:mx-auto lg:flex border-1 shadow-lg rounded-lg p-8 mt-8 mb-24"
+        className=" w-full lg:max-w-[70%]  lg:mx-auto lg:flex border-1 shadow-lg rounded-lg p-8 mt-0 mb-24"
       >
-        <div className=" h-48 lg:h-60 lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
-          <img className="h-36 rounded-xl" src={img} alt="" />
+        <div className="lg:h-60 lg:w-48 flex-none bg-cover lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+          <img className="lg:h-36 rounded-xl hidden  lg:block" src={img} alt="" />
         </div>
         <div className=" lg:border-gray-400 w-[80%] mx-auto rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal bg-gray-100 rounded-2xl">
           <div className="mb-8">
@@ -26,7 +26,7 @@ const CategoryDetails = ({ categoryDetails }) => {
                 <ReactToPrint
                   pageStyle={{ page: "A4" }}
                   trigger={() => (
-                    <FaFilePdf className="text-4xl text-red-600 motion-safe:hover:scale-110" />
+                    <FaFilePdf className="text-4xl text-red-600 motion-safe:hover:scale-110 object-contain" />
                   )}
                   content={() => ref.current}
                 />
@@ -49,7 +49,7 @@ const CategoryDetails = ({ categoryDetails }) => {
             <p className="text-gray-700 text-base text-justify">{details}</p>
           </div>
 
-          <div className="stats shadow-lg">
+          <div className="stats shadow-lg ">
             <div className="stat">
               <div className="stat-figure text-secondary">
                 <FaStar className="text-3xl" />
@@ -82,7 +82,7 @@ const CategoryDetails = ({ categoryDetails }) => {
             <h2 className="text-2xl font-mono font-extrabold shadow-sm">
               Features of this course:
             </h2>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center overflow-hidden">
               {lessons.map((lesson) => (
                 <div className="motion-safe:hover:scale-110 bg-slate-500  text-white h-16 w-28 p-2 px-3 text-md rounded-r-full rounded-lg mt-4 py-5 shadow-xl">
                   {" "}

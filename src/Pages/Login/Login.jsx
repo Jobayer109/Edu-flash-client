@@ -4,7 +4,6 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Contexts/AuthProvider";
-import app from "../../firebase/firebase.config";
 
 const Login = () => {
   const { user, logIn, googleSignIn, githubSignIn, resetPassword } = useContext(AuthContext);
