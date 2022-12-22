@@ -5,7 +5,7 @@ import Logo from "../assets/Logo.png";
 
 const Footer = () => {
   return (
-    <footer className="px-10 divide-y  dark:bg-gray-800 dark:text-gray-300 bg-gray-100">
+    <footer className="px-10 divide-y  dark:bg-gray-800 dark:text-gray-300 bg-gray-100 mt-36">
       <div className="flex justify-between py-10  mx-auto  flex-row space-y-6">
         <div className="w-1/3 flex items-center">
           <Link

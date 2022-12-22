@@ -14,7 +14,7 @@ const CategoryDetails = ({ categoryDetails }) => {
         className=" w-full lg:max-w-[70%]  lg:mx-auto lg:flex border-1 shadow-lg rounded-lg p-8 mt-0 mb-24"
       >
         <div className="lg:h-60 lg:w-48 flex-none bg-cover lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
-          <img className="lg:h-36 rounded-xl hidden  lg:block" src={img} alt="" />
+          <img className="lg:h-36 rounded-xl hidden lg:block" src={img} alt="" />
         </div>
         <div className=" lg:border-gray-400 w-[80%] mx-auto rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal bg-gray-100 rounded-2xl">
           <div className="mb-8">

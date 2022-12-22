@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import swal from "sweetalert";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Register = () => {
   const { createUser, profile } = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -25,7 +23,7 @@ const Register = () => {
         console.log(result.user);
       })
       .catch((error) => {
-        swal(error.message);
+        console.log(error.message);
       });
   };
 

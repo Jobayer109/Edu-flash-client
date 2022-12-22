@@ -4,6 +4,7 @@ import { AuthContext } from "../Contexts/AuthProvider";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
+  console.log(user?.email);
 
   return (
     <div className="max-w-lg mx-auto border p-8 sm:flex sm:space-x-6 mb-40 mt-24 rounded-md bg-slate-400">
@@ -21,7 +22,7 @@ const Profile = () => {
         <div className="space-y-1">
           <span className="flex items-center space-x-2 font-bold">
             <FaEnvelope />
-            <span className="dark:text-gray-400">{user?.email}</span>
+            {user && <span className="dark:text-gray-400">{user?.email}</span>}
           </span>
           <span className="flex items-center space-x-2 font-bold">
             <FaIdBadge className="mr-2" />
